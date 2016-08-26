@@ -16,9 +16,10 @@ var taskConfig = {
 		name: 'ReactEditableSvgLabel',
 		dependencies: [
 			'react',
-			'react-dom'
+			'react-dom',
+			'react-portal'
 		],
-		lib: 'lib'
+		lib: 'src'
 	},
 
 	example: {

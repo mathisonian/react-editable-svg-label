@@ -21,7 +21,8 @@ var App = React.createClass({
 			<div>
 				<svg width="400px" height="300px"
 		       xmlns="http://www.w3.org/2000/svg">
-					<ReactEditableSvgLabel onChange={this.handleChangeText} x={10} y={100}>
+					<circle cx={200} cy={150} r={150} fill='orange'  />
+					<ReactEditableSvgLabel onChange={this.handleChangeText} x={200} y={150} textAnchor='middle' >
 						{this.state.text}
 					</ReactEditableSvgLabel>
 				</svg>

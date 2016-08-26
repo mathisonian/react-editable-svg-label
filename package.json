@@ -2,7 +2,7 @@
   "name": "react-editable-svg-label",
   "version": "1.0.0",
   "description": "react-editable-svg-label",
-  "main": "lib/ReactEditableSvgLabel.js",
+  "main": "src/ReactEditableSvgLabel.js",
   "author": "Matthew Conlen",
   "homepage": "https://github.com/mathisonian/react-editable-svg-label",
   "repository": {
@@ -12,6 +12,7 @@
   "bugs": {
     "url": "https://github.com/mathisonian/react-editable-svg-label/issues"
   },
+  "license": "MIT",
   "dependencies": {
     "react-portal": "^2.1.0"
   },
