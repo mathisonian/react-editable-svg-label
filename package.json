@@ -1,6 +1,6 @@
 {
   "name": "react-editable-svg-label",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react-editable-svg-label",
   "main": "src/ReactEditableSvgLabel.js",
   "author": "Matthew Conlen",
