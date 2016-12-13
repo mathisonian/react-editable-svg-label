@@ -37,7 +37,7 @@ var ReactEditableSvgLabel = React.createClass({
     this.props.onChange(text);
   },
 
-  updateLableBounds () {
+  updateLabelBounds () {
     var rect = this.refs.label.getBoundingClientRect();
     this.setState({
       labelX: rect.left,
@@ -48,7 +48,7 @@ var ReactEditableSvgLabel = React.createClass({
   },
 
   componentDidMount () {
-    this.updateLableBounds();
+    this.updateLabelBounds();
   },
 
   render () {
