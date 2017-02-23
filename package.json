@@ -13,20 +13,31 @@
     "url": "https://github.com/mathisonian/react-editable-svg-label/issues"
   },
   "license": "MIT",
-  "dependencies": {
-    "react-portal": "^2.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^4.1.3",
     "eslint": "^1.6.0",
     "eslint-plugin-react": "^3.5.1",
     "gulp": "^3.9.0",
-    "react": "^0.14.0",
+    "react": "^15.0.0",
     "react-component-gulp-tasks": "^0.7.6",
-    "react-dom": "^0.14.0"
+    "react-dom": "^15.0.0",
+    "react-portal": "^3.0.0"
   },
   "peerDependencies": {
-    "react": "^0.14.0"
+    "react": ">=15.0.0",
+    "react-portal": ">=3.0.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   },
   "browserify-shim": {
     "react": "global:React"
