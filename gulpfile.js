@@ -19,7 +19,6 @@ var taskConfig = {
 			'react-dom',
 			'react-portal'
 		],
-		lib: 'src'
 	},
 
 	example: {
