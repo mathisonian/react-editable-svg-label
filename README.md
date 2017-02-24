@@ -66,8 +66,10 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 ### Properties
 
-Anything that is passed as a prop to the editable label will be passed on to the
-svg `text` element
+**focusOnOpen**: Give the input focus when it's opened.
+
+Anything else that is passed as a prop to the editable label will be passed on
+to the svg `text` element
 
 
 ## Development (`src`, `lib` and the build process)
