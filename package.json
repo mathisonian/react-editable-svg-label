@@ -34,7 +34,7 @@
     "examples": "gulp dev:server",
     "lint": "semistandard src/",
     "publish:site": "NODE_ENV=production gulp publish:examples",
-    "release": "NODE_ENV=production gulp release",
+    "prepublish": "npm run build",
     "start": "gulp dev",
     "test": "echo \"no tests yet\" && exit 0",
     "watch": "gulp watch:lib"
