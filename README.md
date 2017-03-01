@@ -2,18 +2,7 @@
 
 A text component for SVG that allows users to edit the contents.
 
-## Demo & Examples
-
 Live demo: [mathisonian.github.io/react-editable-svg-label](http://mathisonian.github.io/react-editable-svg-label/)
-
-To build the examples locally, run:
-
-```
-npm install
-npm start
-```
-
-Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 
 ## Installation
@@ -23,7 +12,7 @@ The easiest way to use react-editable-svg-label is to install it from NPM and in
 You can also use the standalone build by including `dist/react-editable-svg-label.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable.
 
 ```
-npm install react-editable-svg-label --save
+npm install react-portal react-editable-svg-label --save
 ```
 
 
@@ -70,6 +59,19 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 Anything else that is passed as a prop to the editable label will be passed on
 to the svg `text` element
+
+
+## Demo & Examples
+
+
+To build the examples locally, run:
+
+```
+npm install
+npm start
+```
+
+Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 
 ## Development (`src`, `lib` and the build process)
