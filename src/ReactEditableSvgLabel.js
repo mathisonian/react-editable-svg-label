@@ -14,7 +14,7 @@ var ReactEditableSvgLabel = React.createClass({
     return {
       onChange: function () {},
       minLabelWidth: 100,
-      focusOnOpen: false
+      focusOnOpen: true
     };
   },
 
