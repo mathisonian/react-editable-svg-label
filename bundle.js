@@ -16,13 +16,15 @@ var ReactEditableSvgLabel = React.createClass({
   propTypes: {
     onChange: React.PropTypes.func,
     minLabelWidth: React.PropTypes.number,
+    focusOnOpen: React.PropTypes.bool,
     children: React.PropTypes.any
   },
 
   getDefaultProps: function getDefaultProps() {
     return {
       onChange: function onChange() {},
-      minLabelWidth: 100
+      minLabelWidth: 100,
+      focusOnOpen: true
     };
   },
 
@@ -36,6 +38,12 @@ var ReactEditableSvgLabel = React.createClass({
     };
   },
 
+  handleOpen: function handleOpen(domNode) {
+    if (this.props.focusOnOpen) {
+      this.refs.input.focus();
+    }
+  },
+
   toggleEditing: function toggleEditing(e) {
     this.setState({
       isEditing: !this.state.isEditing
@@ -47,7 +55,7 @@ var ReactEditableSvgLabel = React.createClass({
     this.props.onChange(text);
   },
 
-  updateLableBounds: function updateLableBounds() {
+  updateLabelBounds: function updateLabelBounds() {
     var rect = this.refs.label.getBoundingClientRect();
     this.setState({
       labelX: rect.left,
@@ -58,19 +66,25 @@ var ReactEditableSvgLabel = React.createClass({
   },
 
   componentDidMount: function componentDidMount() {
-    this.updateLableBounds();
+    this.updateLabelBounds();
   },
 
   render: function render() {
+    // Omit onChange, minLabelWidth, and children.
+    var passThroughProps = _extends({}, this.props);
+    Object.keys(this.constructor.propTypes).forEach(function (key) {
+      delete passThroughProps[key];
+    });
+
     var label = React.createElement(
       'text',
-      _extends({ ref: 'label' }, this.props),
+      _extends({ ref: 'label' }, passThroughProps),
       this.props.children
     );
     return React.createElement(
       Portal,
-      { openByClickOn: label, closeOnOutsideClick: true, style: { position: 'absolute', top: this.state.labelY, left: this.state.labelX } },
-      React.createElement('input', { type: 'text', value: this.props.children, onChange: this.handleChangeText, style: { width: Math.max(this.props.minLabelWidth, this.state.labelWidth), height: this.state.labelHeight } })
+      { openByClickOn: label, closeOnOutsideClick: true, onOpen: this.handleOpen },
+      React.createElement('input', { ref: 'input', type: 'text', value: this.props.children, onChange: this.handleChangeText, style: { position: 'absolute', top: this.state.labelY, left: this.state.labelX, width: Math.max(this.props.minLabelWidth, this.state.labelWidth), height: this.state.labelHeight } })
     );
   }
 
