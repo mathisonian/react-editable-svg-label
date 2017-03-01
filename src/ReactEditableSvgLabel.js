@@ -52,10 +52,16 @@ var ReactEditableSvgLabel = React.createClass({
   },
 
   render () {
-    var label = <text ref='label' {...this.props}>{this.props.children}</text>;
+    // Omit onChange, minLabelWidth, and children.
+    var passThroughProps = Object.assign({}, this.props);
+    Object.keys(this.constructor.propTypes).forEach(function (key) {
+      delete passThroughProps[key];
+    });
+
+    var label = <text ref='label' {...passThroughProps}>{this.props.children}</text>;
     return (
-      <Portal openByClickOn={label} closeOnOutsideClick style={{position: 'absolute', top: this.state.labelY, left: this.state.labelX}}>
-        <input type='text' value={this.props.children} onChange={this.handleChangeText} style={{width: Math.max(this.props.minLabelWidth, this.state.labelWidth), height: this.state.labelHeight}} />
+      <Portal openByClickOn={label} closeOnOutsideClick>
+        <input type='text' value={this.props.children} onChange={this.handleChangeText} style={{position: 'absolute', top: this.state.labelY, left: this.state.labelX, width: Math.max(this.props.minLabelWidth, this.state.labelWidth), height: this.state.labelHeight}} />
       </Portal>
     );
   }
