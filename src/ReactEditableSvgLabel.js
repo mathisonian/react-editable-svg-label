@@ -1,13 +1,14 @@
 var React = require('react');
 var Portal = require('react-portal');
+var PropTypes = require('prop-types');
 
 var ReactEditableSvgLabel = React.createClass({
 
   propTypes: {
-    onChange: React.PropTypes.func,
-    minLabelWidth: React.PropTypes.number,
-    focusOnOpen: React.PropTypes.bool,
-    children: React.PropTypes.any
+    onChange: PropTypes.func,
+    minLabelWidth: PropTypes.number,
+    focusOnOpen: PropTypes.bool,
+    children: PropTypes.any
   },
 
   getDefaultProps () {
