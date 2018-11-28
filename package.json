@@ -2,7 +2,9 @@
   "name": "react-editable-svg-label",
   "version": "1.1.1",
   "description": "react-editable-svg-label",
-  "main": "lib/ReactEditableSvgLabel.js",
+  "main": "lib/ReactEditableSvgLabel.cjs.js",
+  "module": "lib/ReactEditableSvgLabel.esm.js",
+  "browser": "dist/react-editable-svg-label.js",
   "author": "Matthew Conlen",
   "homepage": "https://github.com/mathisonian/react-editable-svg-label",
   "repository": {
@@ -17,6 +19,9 @@
     "prop-types": "^15.6.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "check-node-version": "^3.2.0",
     "gulp": "^3.9.0",
@@ -24,6 +29,12 @@
     "react-component-gulp-tasks": "^0.7.6",
     "react-dom": "^15.0.0",
     "react-portal": "^3.0.0",
+    "rollup": "^0.67.3",
+    "rollup-plugin-alias": "^1.4.0",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-serve": "^0.6.0",
     "semistandard": "^13.0.1"
   },
   "peerDependencies": {
@@ -35,14 +46,24 @@
   },
   "scripts": {
     "depcheck": "check-node-version --node \">=6.0 <8.0\"",
-    "build": "gulp clean && NODE_ENV=production gulp build",
+    "build": "rollup --config",
     "examples": "gulp dev:server",
     "lint": "semistandard",
     "publish:site": "NODE_ENV=production gulp publish:examples",
     "prepare": "npm run depcheck && npm run build",
-    "start": "gulp dev",
-    "test": "echo \"no tests yet\" && exit 0",
-    "watch": "gulp watch:lib"
+    "start": "rollup --config --watch",
+    "test": "echo \"no tests yet\" && exit 0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/env",
+        {
+          "modules": false
+        }
+      ]
+    ]
   },
   "semistandard": {
     "parser": "babel-eslint",

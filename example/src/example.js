@@ -1,6 +1,6 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactEditableSvgLabel = require('react-editable-svg-label');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactEditableSvgLabel from 'react-editable-svg-label';
 
 var App = React.createClass({
 
