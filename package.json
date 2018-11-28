@@ -13,7 +13,9 @@
     "url": "https://github.com/mathisonian/react-editable-svg-label/issues"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "react": "^15.0.0",
