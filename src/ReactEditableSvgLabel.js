@@ -70,7 +70,7 @@ var ReactEditableSvgLabel = React.createClass({
     var label = <text ref='label' {...passThroughProps}>{this.props.children}</text>;
     return (
       <Portal openByClickOn={label} closeOnOutsideClick onOpen={this.handleOpen}>
-        <input ref='input' type='text' value={this.props.children} onChange={this.handleChangeText} style={{position: 'absolute', top: this.state.labelY, left: this.state.labelX, width: Math.max(this.props.minLabelWidth, this.state.labelWidth), height: this.state.labelHeight}} />
+        <input ref='input' type='text' value={this.props.children} onChange={this.handleChangeText} style={{ position: 'absolute', top: this.state.labelY, left: this.state.labelX, width: Math.max(this.props.minLabelWidth, this.state.labelWidth), height: this.state.labelHeight }} />
       </Portal>
     );
   }
