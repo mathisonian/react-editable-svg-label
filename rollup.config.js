@@ -2,7 +2,6 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import alias from 'rollup-plugin-alias';
-import serve from 'rollup-plugin-serve';
 import copy from 'rollup-plugin-cpy';
 import cleaner from 'rollup-plugin-cleaner';
 import replace from 'rollup-plugin-replace';
@@ -44,7 +43,7 @@ export default [
     ]
   },
 
-  // Example app, systemjs.
+  // Example app using SystemJS.
   {
     input: 'example/src/example.js',
     output: {
@@ -88,10 +87,6 @@ export default [
       cleaner({
         targets: ['example/dist']
       })
-      // serve({
-      //   open: true,
-      //   contentBase: 'example/dist',
-      // })
     ]
   }
 
