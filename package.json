@@ -44,9 +44,6 @@
     "react": ">=15.0.0",
     "react-portal": ">=3.0.0"
   },
-  "browserify-shim": {
-    "react": "global:React"
-  },
   "scripts": {
     "build": "rollup --config",
     "lint": "semistandard",
