@@ -19,7 +19,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "check-node-version": "^3.2.0",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "react": "^15.0.0",
     "react-component-gulp-tasks": "^0.7.6",
     "react-dom": "^15.0.0",
@@ -38,6 +38,7 @@
     "build": "gulp clean && NODE_ENV=production gulp build",
     "examples": "gulp dev:server",
     "lint": "semistandard",
+    "lint-fix": "semistandard --fix",
     "publish:site": "NODE_ENV=production gulp publish:examples",
     "prepare": "npm run depcheck && npm run build",
     "start": "gulp dev",

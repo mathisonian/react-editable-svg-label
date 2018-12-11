@@ -3,8 +3,7 @@ var Portal = require('react-portal');
 var PropTypes = require('prop-types');
 
 class ReactEditableSvgLabel extends React.component {
-
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -13,7 +12,7 @@ class ReactEditableSvgLabel extends React.component {
       labelY: 0,
       labelWidth: 0,
       labelHeight: 0
-    }
+    };
 
     this.handleOpen = this.handleOpen.bind(this);
     this.toggleEditing = this.toggleEditing.bind(this);
@@ -66,19 +65,18 @@ class ReactEditableSvgLabel extends React.component {
       </Portal>
     );
   }
-
 }
 
-ReviewsList.propTypes = {
+ReactEditableSvgLabel.propTypes = {
   onChange: PropTypes.func,
   minLabelWidth: PropTypes.number,
   focusOnOpen: PropTypes.bool,
   children: PropTypes.any
-}
+};
 
-ReviewsList.defaultProps = {
+ReactEditableSvgLabel.defaultProps = {
   onChange: function () {},
   minLabelWidth: 100,
   focusOnOpen: true
-}
+};
 export default ReactEditableSvgLabel;
