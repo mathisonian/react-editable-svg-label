@@ -9,7 +9,7 @@ Live demo: [mathisonian.github.io/react-editable-svg-label](http://mathisonian.g
 
 The easiest way to use react-editable-svg-label is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
 
-You can also use the standalone build by including `dist/react-editable-svg-label.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable.
+You can also use the standalone build by including `dist/react-editable-svg-label.js` in your page. If you use this, make sure you have already included React and react-portal, and they are available as global variables `React` and `Portal`.
 
 ```
 npm install react-portal react-editable-svg-label --save

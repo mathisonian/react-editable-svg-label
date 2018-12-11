@@ -1,6 +1,6 @@
-var React = require('react');
-var Portal = require('react-portal');
-var PropTypes = require('prop-types');
+import React from 'react';
+import Portal from 'react-portal';
+import PropTypes from 'prop-types';
 
 class ReactEditableSvgLabel extends React.component {
   constructor (props) {

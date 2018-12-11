@@ -2,7 +2,9 @@
   "name": "react-editable-svg-label",
   "version": "1.1.1",
   "description": "react-editable-svg-label",
-  "main": "lib/ReactEditableSvgLabel.js",
+  "main": "lib/ReactEditableSvgLabel.cjs.js",
+  "module": "lib/ReactEditableSvgLabel.esm.js",
+  "browser": "dist/react-editable-svg-label.js",
   "author": "Matthew Conlen",
   "homepage": "https://github.com/mathisonian/react-editable-svg-label",
   "repository": {
@@ -17,33 +19,53 @@
     "prop-types": "^15.6.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "acorn": "^6.0.4",
     "babel-eslint": "^10.0.1",
     "check-node-version": "^3.2.0",
-    "gulp": "^3.9.1",
+    "concurrently": "^4.1.0",
     "react": "^15.0.0",
-    "react-component-gulp-tasks": "^0.7.6",
     "react-dom": "^15.0.0",
     "react-portal": "^3.0.0",
-    "semistandard": "^13.0.1"
+    "rollup": "^0.67.3",
+    "rollup-plugin-alias": "^1.4.0",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-cleaner": "^0.2.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-cpy": "^1.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-replace": "^2.1.0",
+    "semistandard": "^13.0.1",
+    "serve": "^10.1.1",
+    "systemjs": "paulmelnikow/systemjs#cab42d79751e92759f9eaa867a09f99687a9c7ca"
   },
   "peerDependencies": {
     "react": ">=15.0.0",
     "react-portal": ">=3.0.0"
   },
-  "browserify-shim": {
-    "react": "global:React"
-  },
   "scripts": {
-    "depcheck": "check-node-version --node \">=6.0 <8.0\"",
-    "build": "gulp clean && NODE_ENV=production gulp build",
-    "examples": "gulp dev:server",
+    "build": "rollup --config",
     "lint": "semistandard",
     "lint-fix": "semistandard --fix",
     "publish:site": "NODE_ENV=production gulp publish:examples",
-    "prepare": "npm run depcheck && npm run build",
-    "start": "gulp dev",
-    "test": "echo \"no tests yet\" && exit 0",
-    "watch": "gulp watch:lib"
+    "prepare": "npm run build",
+    "serve": "serve example/dist",
+    "watch": "rollup --config --watch",
+    "start": "concurrently \"npm run watch\" \"npm run serve\"",
+    "test": "echo \"no tests yet\" && exit 0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/env",
+        {
+          "modules": false
+        }
+      ]
+    ]
   },
   "semistandard": {
     "parser": "babel-eslint",
