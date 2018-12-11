@@ -79,4 +79,5 @@ ReactEditableSvgLabel.defaultProps = {
   minLabelWidth: 100,
   focusOnOpen: true
 };
+
 export default ReactEditableSvgLabel;
