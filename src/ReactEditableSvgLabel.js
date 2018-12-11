@@ -2,49 +2,41 @@ var React = require('react');
 var Portal = require('react-portal');
 var PropTypes = require('prop-types');
 
-var ReactEditableSvgLabel = React.createClass({
+class ReactEditableSvgLabel extends React.component {
 
-  propTypes: {
-    onChange: PropTypes.func,
-    minLabelWidth: PropTypes.number,
-    focusOnOpen: PropTypes.bool,
-    children: PropTypes.any
-  },
+  constructor(props) {
+    super(props);
 
-  getDefaultProps () {
-    return {
-      onChange: function () {},
-      minLabelWidth: 100,
-      focusOnOpen: true
-    };
-  },
-
-  getInitialState () {
-    return {
+    this.state = {
       isEditing: false,
       labelX: 0,
       labelY: 0,
       labelWidth: 0,
       labelHeight: 0
-    };
-  },
+    }
+
+    this.handleOpen = this.handleOpen.bind(this);
+    this.toggleEditing = this.toggleEditing.bind(this);
+    this.handleChangeText = this.handleChangeText.bind(this);
+    this.updateLabelBounds = this.updateLabelBounds.bind(this);
+  }
 
   handleOpen (domNode) {
     if (this.props.focusOnOpen) {
       this.refs.input.focus();
     }
-  },
+  }
 
   toggleEditing (e) {
     this.setState({
       isEditing: !this.state.isEditing
     });
-  },
+  }
 
   handleChangeText (e) {
     var text = e.target.value;
     this.props.onChange(text);
-  },
+  }
 
   updateLabelBounds () {
     var rect = this.refs.label.getBoundingClientRect();
@@ -54,11 +46,11 @@ var ReactEditableSvgLabel = React.createClass({
       labelWidth: rect.width,
       labelHeight: rect.height
     });
-  },
+  }
 
   componentDidMount () {
     this.updateLabelBounds();
-  },
+  }
 
   render () {
     // Omit onChange, minLabelWidth, and children.
@@ -75,6 +67,18 @@ var ReactEditableSvgLabel = React.createClass({
     );
   }
 
-});
+}
 
+ReviewsList.propTypes = {
+  onChange: PropTypes.func,
+  minLabelWidth: PropTypes.number,
+  focusOnOpen: PropTypes.bool,
+  children: PropTypes.any
+}
+
+ReviewsList.defaultProps = {
+  onChange: function () {},
+  minLabelWidth: 100,
+  focusOnOpen: true
+}
 export default ReactEditableSvgLabel;
