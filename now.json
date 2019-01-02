@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "react-boxplot",
+  "name": "react-editable-svg-label",
   "builds": [{ "src": "package.json", "use": "@now/static-build" }],
   "routes": [
     { "src": "^/dist/(.*)", "dest": "/dist/$1" },
