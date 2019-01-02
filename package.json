@@ -38,7 +38,7 @@
     "rollup-plugin-replace": "^2.1.0",
     "semistandard": "^13.0.1",
     "serve": "^10.1.1",
-    "systemjs": "paulmelnikow/systemjs#cab42d79751e92759f9eaa867a09f99687a9c7ca"
+    "systemjs": "git+https://github.com/paulmelnikow/systemjs#cab42d79751e92759f9eaa867a09f99687a9c7ca"
   },
   "peerDependencies": {
     "react": ">=15.0.0",
