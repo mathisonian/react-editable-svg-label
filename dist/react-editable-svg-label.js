@@ -903,8 +903,8 @@
 
   var ReactEditableSvgLabel =
   /*#__PURE__*/
-  function (_React$component) {
-    _inherits(ReactEditableSvgLabel, _React$component);
+  function (_React$Component) {
+    _inherits(ReactEditableSvgLabel, _React$Component);
 
     function ReactEditableSvgLabel(props) {
       var _this;
@@ -994,7 +994,7 @@
     }]);
 
     return ReactEditableSvgLabel;
-  }(React.component);
+  }(React.Component);
 
   ReactEditableSvgLabel.propTypes = {
     onChange: propTypes.func,
