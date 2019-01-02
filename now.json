@@ -1,1 +1,10 @@
-{}
+{
+  "version": 2,
+  "name": "react-editable-svg-label",
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    { "src": "^/dist/(.*)", "dest": "/dist/$1" },
+    { "src": "^/(.*)", "dest": "/example/$1" }
+  ],
+  "public": true
+}

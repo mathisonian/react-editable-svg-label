@@ -1,8 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('react-portal')) :
   typeof define === 'function' && define.amd ? define(['react', 'react-portal'], factory) :
-  (global.ReactEditableSvgLabel = factory(global.React,global.Portal));
-}(this, (function (React,Portal) { 'use strict';
+  (global = global || self, global.ReactEditableSvgLabel = factory(global.React, global.Portal));
+}(this, function (React, Portal) { 'use strict';
 
   React = React && React.hasOwnProperty('default') ? React['default'] : React;
   Portal = Portal && Portal.hasOwnProperty('default') ? Portal['default'] : Portal;
@@ -1010,4 +1010,4 @@
 
   return ReactEditableSvgLabel;
 
-})));
+}));
