@@ -97,7 +97,7 @@ export default [
       name: 'Example',
       file: 'example/dist/example.js',
       format: 'iife',
-      sourcemap: true,
+      sourcemap: true
     },
     plugins: [
       babel({ exclude: 'node_modules/**' }),
@@ -109,7 +109,7 @@ export default [
       copy({
         files: [
           'example/src/index.html',
-          'example/src/example.css',
+          'example/src/example.css'
         ],
         dest: 'example/dist'
       }),
