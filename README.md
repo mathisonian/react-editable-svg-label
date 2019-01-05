@@ -2,13 +2,14 @@
 
 [![version](https://img.shields.io/npm/v/react-editable-svg-label.svg?style=flat-square)][npm]
 [![react version](https://img.shields.io/npm/dependency-version/react-editable-svg-label/peer/react.svg?style=flat-square)][react]
-[![react-portal version](https://img.shields.io/npm/dependency-version/react-editable-svg-label/peer/react-portal.svg?style=flat-square)][react]
+[![react-portal version](https://img.shields.io/npm/dependency-version/react-editable-svg-label/peer/react-portal.svg?style=flat-square)][react-portal]
 [![license](https://img.shields.io/npm/l/react-editable-svg-label.svg?style=flat-square)][npm]
 [![build](https://img.shields.io/circleci/project/github/mathisonian/react-editable-svg-label.svg?style=flat-square)][build]
 [![code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)][prettier]
 
 [npm]: https://npmjs.com/react-editable-svg-label
 [react]: https://github.com/facebook/react/releases
+[react-portal]: https://github.com/tajo/react-portal/releases
 [build]: https://circleci.com/gh/mathisonian/react-editable-svg-label/tree/master
 [prettier]: https://prettier.io/
 
