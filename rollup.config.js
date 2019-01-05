@@ -114,7 +114,7 @@ export default [
         dest: 'example/dist'
       }),
       replace({
-        'process.env.NODE_ENV': JSON.stringify('production')
+        'process.env.NODE_ENV': JSON.stringify('development')
       }),
       cleaner({
         targets: ['example/dist']

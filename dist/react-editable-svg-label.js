@@ -929,15 +929,20 @@
       key: "handleOpen",
       value: function handleOpen(domNode) {
         if (this.props.focusOnOpen) {
-          this.refs.input.focus();
+          this.inputElement.focus();
         }
       }
     }, {
       key: "toggleEditing",
-      value: function toggleEditing(e) {
+      value: function toggleEditing() {
+        var newIsEditing = !this.state.isEditing;
         this.setState({
-          isEditing: !this.state.isEditing
+          isEditing: newIsEditing
         });
+
+        if (newIsEditing) {
+          this.portalElement.current.openPortal();
+        }
       }
     }, {
       key: "handleChangeText",
@@ -948,7 +953,7 @@
     }, {
       key: "updateLabelBounds",
       value: function updateLabelBounds() {
-        var rect = this.refs.label.getBoundingClientRect();
+        var rect = this.labelElement.getBoundingClientRect();
         this.setState({
           labelX: rect.left,
           labelY: rect.top,
@@ -964,31 +969,45 @@
     }, {
       key: "render",
       value: function render() {
+        var _this2 = this;
+
         // Omit onChange, minLabelWidth, and children.
         var passThroughProps = Object.assign({}, this.props);
         Object.keys(this.constructor.propTypes).forEach(function (key) {
           delete passThroughProps[key];
         });
-        var label = React.createElement("text", _extends({
-          ref: "label"
-        }, passThroughProps), this.props.children);
-        return React.createElement(reactPortal.Portal, {
-          openByClickOn: label,
+        return React.createElement(reactPortal.PortalWithState, {
+          ref: function ref(el) {
+            _this2.portalElement = el;
+          },
           closeOnOutsideClick: true,
           onOpen: this.handleOpen
-        }, React.createElement("input", {
-          ref: "input",
-          type: "text",
-          value: this.props.children,
-          onChange: this.handleChangeText,
-          style: {
-            position: 'absolute',
-            top: this.state.labelY,
-            left: this.state.labelX,
-            width: Math.max(this.props.minLabelWidth, this.state.labelWidth),
-            height: this.state.labelHeight
-          }
-        }));
+        }, function (_ref) {
+          var openPortal = _ref.openPortal,
+              closePortal = _ref.closePortal,
+              isOpen = _ref.isOpen,
+              portal = _ref.portal;
+          return React.createElement(React.Fragment, null, React.createElement("text", _extends({
+            ref: function ref(el) {
+              _this2.labelElement = el;
+            },
+            onClick: openPortal
+          }, passThroughProps), _this2.props.children), portal(React.createElement("input", {
+            ref: function ref(el) {
+              _this2.inputElement = el;
+            },
+            type: "text",
+            value: _this2.props.children,
+            onChange: _this2.handleChangeText,
+            style: {
+              position: 'absolute',
+              top: _this2.state.labelY,
+              left: _this2.state.labelX,
+              width: Math.max(_this2.props.minLabelWidth, _this2.state.labelWidth),
+              height: _this2.state.labelHeight
+            }
+          })));
+        });
       }
     }]);
 
