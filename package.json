@@ -1,6 +1,6 @@
 {
   "name": "react-editable-svg-label",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "react-editable-svg-label",
   "main": "lib/ReactEditableSvgLabel.cjs.js",
   "module": "lib/ReactEditableSvgLabel.esm.js",
@@ -56,6 +56,12 @@
     "test": "echo \"no tests yet\" && exit 0",
     "now-build": "cd dist && mkdir dist example && mv *.js dist && cp -r ../example/dist/* example/"
   },
+  "files": [
+    "src/*.js",
+    "lib/*.js",
+    "dist/*.js",
+    "example/src/*.@(css|js|html)"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-react",
@@ -78,6 +84,8 @@
   },
   "keywords": [
     "react",
-    "react-component"
+    "react-component",
+    "svg",
+    "label"
   ]
 }
