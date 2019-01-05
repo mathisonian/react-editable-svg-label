@@ -1,5 +1,5 @@
 import React from 'react';
-import Portal from 'react-portal';
+import { PortalWithState } from 'react-portal';
 import PropTypes from 'prop-types';
 
 class ReactEditableSvgLabel extends React.Component {
@@ -14,6 +14,10 @@ class ReactEditableSvgLabel extends React.Component {
       labelHeight: 0
     };
 
+    this.inputRef = React.createRef();
+    this.labelRef = React.createRef();
+    this.portalRef = React.createRef();
+
     this.handleOpen = this.handleOpen.bind(this);
     this.toggleEditing = this.toggleEditing.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
@@ -22,14 +26,16 @@ class ReactEditableSvgLabel extends React.Component {
 
   handleOpen (domNode) {
     if (this.props.focusOnOpen) {
-      this.refs.input.focus();
+      this.inputRef.current.focus();
     }
   }
 
-  toggleEditing (e) {
-    this.setState({
-      isEditing: !this.state.isEditing
-    });
+  toggleEditing () {
+    const newIsEditing = !this.state.isEditing;
+    this.setState({ isEditing: newIsEditing });
+    if (newIsEditing) {
+      this.portalRef.current.openPortal();
+    }
   }
 
   handleChangeText (e) {
@@ -38,7 +44,7 @@ class ReactEditableSvgLabel extends React.Component {
   }
 
   updateLabelBounds () {
-    var rect = this.refs.label.getBoundingClientRect();
+    var rect = this.labelRef.current.getBoundingClientRect();
     this.setState({
       labelX: rect.left,
       labelY: rect.top,
@@ -58,11 +64,39 @@ class ReactEditableSvgLabel extends React.Component {
       delete passThroughProps[key];
     });
 
-    var label = <text ref='label' {...passThroughProps}>{this.props.children}</text>;
     return (
-      <Portal openByClickOn={label} closeOnOutsideClick onOpen={this.handleOpen}>
-        <input ref='input' type='text' value={this.props.children} onChange={this.handleChangeText} style={{ position: 'absolute', top: this.state.labelY, left: this.state.labelX, width: Math.max(this.props.minLabelWidth, this.state.labelWidth), height: this.state.labelHeight }} />
-      </Portal>
+      <PortalWithState
+        ref={this.portalRef}
+        closeOnOutsideClick
+        onOpen={this.handleOpen}
+      >
+        {({ openPortal, closePortal, isOpen, portal }) => (
+          <>
+            <text
+              ref={this.labelRef}
+              onClick={openPortal}
+              {...passThroughProps}
+            >
+              {this.props.children}
+            </text>
+            {portal(
+              <input
+                ref={this.inputRef}
+                type='text'
+                value={this.props.children}
+                onChange={this.handleChangeText}
+                style={{
+                  position: 'absolute',
+                  top: this.state.labelY,
+                  left: this.state.labelX,
+                  width: Math.max(this.props.minLabelWidth, this.state.labelWidth),
+                  height: this.state.labelHeight
+                }}
+              />
+            )}
+          </>
+        )}
+      </PortalWithState>
     );
   }
 }

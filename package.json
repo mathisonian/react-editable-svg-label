@@ -25,9 +25,9 @@
     "acorn": "^6.0.4",
     "babel-eslint": "^10.0.1",
     "concurrently": "^4.1.0",
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0",
-    "react-portal": "^3.0.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-portal": "^4.2.0",
     "rollup": "^0.68.2",
     "rollup-plugin-alias": "^1.4.0",
     "rollup-plugin-babel": "^4.0.3",
@@ -41,8 +41,8 @@
     "systemjs": "https://github.com/paulmelnikow/systemjs/tarball/cab42d79751e92759f9eaa867a09f99687a9c7ca"
   },
   "peerDependencies": {
-    "react": ">=15.0.0",
-    "react-portal": ">=3.0.0"
+    "react": "^16.0.0-0",
+    "react-portal": "^4.0.0"
   },
   "scripts": {
     "build": "rollup --config",

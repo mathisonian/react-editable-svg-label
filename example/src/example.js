@@ -2,19 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactEditableSvgLabel from 'react-editable-svg-label';
 
-var App = React.createClass({
+class App extends React.Component {
+  constructor (props) {
+    super(props);
 
-  getInitialState () {
-    return {
+    this.handleChangeText = this.handleChangeText.bind(this);
+
+    this.state = {
       text: 'Click me to change this text!'
     };
-  },
+  }
 
   handleChangeText (newText) {
     this.setState({
       text: newText
     });
-  },
+  }
 
   render () {
     return (
@@ -29,6 +32,6 @@ var App = React.createClass({
       </div>
     );
   }
-});
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
