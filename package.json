@@ -41,7 +41,7 @@
     "systemjs": "https://github.com/paulmelnikow/systemjs/tarball/cab42d79751e92759f9eaa867a09f99687a9c7ca"
   },
   "peerDependencies": {
-    "react": "^15.0.0-0 || ^16.0.0-0",
+    "react": "^16.0.0-0",
     "react-portal": "^4.0.0"
   },
   "scripts": {
