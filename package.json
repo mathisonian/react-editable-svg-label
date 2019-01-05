@@ -56,6 +56,12 @@
     "test": "echo \"no tests yet\" && exit 0",
     "now-build": "cd dist && mkdir dist example && mv *.js dist && cp -r ../example/dist/* example/"
   },
+  "files": [
+    "src/*.js",
+    "lib/*.js",
+    "dist/*.js",
+    "example/src/*.@(css|js|html)"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-react",
