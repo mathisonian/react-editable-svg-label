@@ -7,9 +7,9 @@
 [![build](https://img.shields.io/circleci/project/github/mathisonian/react-editable-svg-label.svg?style=flat-square)][build]
 [![code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)][prettier]
 
-[npm]: https://npmjs.comreact-editable-svg-label/
+[npm]: https://npmjs.com/react-editable-svg-label
 [react]: https://github.com/facebook/react/releases
-[build]: https://circleci.com/gh/metabolize/react-editable-svg-label/tree/master
+[build]: https://circleci.com/gh/mathisonian/react-editable-svg-label/tree/master
 [prettier]: https://prettier.io/
 
 A text component for SVG that allows users to edit the contents.
