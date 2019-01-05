@@ -14,6 +14,10 @@ class ReactEditableSvgLabel extends React.Component {
       labelHeight: 0
     };
 
+    this.inputRef = React.createRef();
+    this.labelRef = React.createRef();
+    this.portalRef = React.createRef();
+
     this.handleOpen = this.handleOpen.bind(this);
     this.toggleEditing = this.toggleEditing.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
@@ -22,7 +26,7 @@ class ReactEditableSvgLabel extends React.Component {
 
   handleOpen (domNode) {
     if (this.props.focusOnOpen) {
-      this.inputElement.focus();
+      this.inputRef.current.focus();
     }
   }
 
@@ -30,7 +34,7 @@ class ReactEditableSvgLabel extends React.Component {
     const newIsEditing = !this.state.isEditing;
     this.setState({ isEditing: newIsEditing });
     if (newIsEditing) {
-      this.portalElement.current.openPortal();
+      this.portalRef.current.openPortal();
     }
   }
 
@@ -40,7 +44,7 @@ class ReactEditableSvgLabel extends React.Component {
   }
 
   updateLabelBounds () {
-    var rect = this.labelElement.getBoundingClientRect();
+    var rect = this.labelRef.current.getBoundingClientRect();
     this.setState({
       labelX: rect.left,
       labelY: rect.top,
@@ -62,14 +66,14 @@ class ReactEditableSvgLabel extends React.Component {
 
     return (
       <PortalWithState
-        ref={el => { this.portalElement = el; }}
+        ref={this.portalRef}
         closeOnOutsideClick
         onOpen={this.handleOpen}
       >
         {({ openPortal, closePortal, isOpen, portal }) => (
           <>
             <text
-              ref={el => { this.labelElement = el; }}
+              ref={this.labelRef}
               onClick={openPortal}
               {...passThroughProps}
             >
@@ -77,7 +81,7 @@ class ReactEditableSvgLabel extends React.Component {
             </text>
             {portal(
               <input
-                ref={el => { this.inputElement = el; }}
+                ref={this.inputRef}
                 type='text'
                 value={this.props.children}
                 onChange={this.handleChangeText}

@@ -918,6 +918,9 @@
         labelWidth: 0,
         labelHeight: 0
       };
+      _this.inputRef = React.createRef();
+      _this.labelRef = React.createRef();
+      _this.portalRef = React.createRef();
       _this.handleOpen = _this.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this)));
       _this.toggleEditing = _this.toggleEditing.bind(_assertThisInitialized(_assertThisInitialized(_this)));
       _this.handleChangeText = _this.handleChangeText.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -929,7 +932,7 @@
       key: "handleOpen",
       value: function handleOpen(domNode) {
         if (this.props.focusOnOpen) {
-          this.inputElement.focus();
+          this.inputRef.current.focus();
         }
       }
     }, {
@@ -941,7 +944,7 @@
         });
 
         if (newIsEditing) {
-          this.portalElement.current.openPortal();
+          this.portalRef.current.openPortal();
         }
       }
     }, {
@@ -953,7 +956,7 @@
     }, {
       key: "updateLabelBounds",
       value: function updateLabelBounds() {
-        var rect = this.labelElement.getBoundingClientRect();
+        var rect = this.labelRef.current.getBoundingClientRect();
         this.setState({
           labelX: rect.left,
           labelY: rect.top,
@@ -977,9 +980,7 @@
           delete passThroughProps[key];
         });
         return React.createElement(reactPortal.PortalWithState, {
-          ref: function ref(el) {
-            _this2.portalElement = el;
-          },
+          ref: this.portalRef,
           closeOnOutsideClick: true,
           onOpen: this.handleOpen
         }, function (_ref) {
@@ -988,14 +989,10 @@
               isOpen = _ref.isOpen,
               portal = _ref.portal;
           return React.createElement(React.Fragment, null, React.createElement("text", _extends({
-            ref: function ref(el) {
-              _this2.labelElement = el;
-            },
+            ref: _this2.labelRef,
             onClick: openPortal
           }, passThroughProps), _this2.props.children), portal(React.createElement("input", {
-            ref: function ref(el) {
-              _this2.inputElement = el;
-            },
+            ref: _this2.inputRef,
             type: "text",
             value: _this2.props.children,
             onChange: _this2.handleChangeText,
