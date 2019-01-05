@@ -2,10 +2,9 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('react-portal')) :
   typeof define === 'function' && define.amd ? define(['react', 'react-portal'], factory) :
   (global = global || self, global.ReactEditableSvgLabel = factory(global.React, global.Portal));
-}(this, function (React, Portal) { 'use strict';
+}(this, function (React, reactPortal) { 'use strict';
 
   React = React && React.hasOwnProperty('default') ? React['default'] : React;
-  Portal = Portal && Portal.hasOwnProperty('default') ? Portal['default'] : Portal;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -973,7 +972,7 @@
         var label = React.createElement("text", _extends({
           ref: "label"
         }, passThroughProps), this.props.children);
-        return React.createElement(Portal, {
+        return React.createElement(reactPortal.Portal, {
           openByClickOn: label,
           closeOnOutsideClick: true,
           onOpen: this.handleOpen
