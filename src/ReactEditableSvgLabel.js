@@ -67,7 +67,7 @@ class ReactEditableSvgLabel extends React.Component {
         onOpen={this.handleOpen}
       >
         {({ openPortal, closePortal, isOpen, portal }) => (
-          <React.Fragment>
+          <>
             <text
               ref={el => { this.labelElement = el; }}
               onClick={openPortal}
@@ -90,7 +90,7 @@ class ReactEditableSvgLabel extends React.Component {
                 }}
               />
             )}
-          </React.Fragment>
+          </>
         )}
       </PortalWithState>
     );

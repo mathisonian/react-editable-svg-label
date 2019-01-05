@@ -15,6 +15,8 @@ You can also use the standalone build by including `dist/react-editable-svg-labe
 npm install react-portal react-editable-svg-label --save
 ```
 
+Uses `React.Fragment` and requires React 16 or later.
+
 
 ## Usage
 
