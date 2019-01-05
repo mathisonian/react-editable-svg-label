@@ -7,6 +7,28 @@
   React = React && React.hasOwnProperty('default') ? React['default'] : React;
   Portal = Portal && Portal.hasOwnProperty('default') ? Portal['default'] : Portal;
 
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
+
   function _extends() {
     _extends = Object.assign || function (target) {
       for (var i = 1; i < arguments.length; i++) {
@@ -23,6 +45,53 @@
     };
 
     return _extends.apply(this, arguments);
+  }
+
+  function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) _setPrototypeOf(subClass, superClass);
+  }
+
+  function _getPrototypeOf(o) {
+    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+      return o.__proto__ || Object.getPrototypeOf(o);
+    };
+    return _getPrototypeOf(o);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+
+    return _setPrototypeOf(o, p);
+  }
+
+  function _assertThisInitialized(self) {
+    if (self === void 0) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+
+    return self;
+  }
+
+  function _possibleConstructorReturn(self, call) {
+    if (call && (typeof call === "object" || typeof call === "function")) {
+      return call;
+    }
+
+    return _assertThisInitialized(self);
   }
 
   function createCommonjsModule(fn, module) {
@@ -832,84 +901,112 @@
   }
   });
 
-  var ReactEditableSvgLabel = React.createClass({
-    displayName: "ReactEditableSvgLabel",
-    propTypes: {
-      onChange: propTypes.func,
-      minLabelWidth: propTypes.number,
-      focusOnOpen: propTypes.bool,
-      children: propTypes.any
-    },
-    getDefaultProps: function getDefaultProps() {
-      return {
-        onChange: function onChange() {},
-        minLabelWidth: 100,
-        focusOnOpen: true
-      };
-    },
-    getInitialState: function getInitialState() {
-      return {
+  var ReactEditableSvgLabel =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inherits(ReactEditableSvgLabel, _React$Component);
+
+    function ReactEditableSvgLabel(props) {
+      var _this;
+
+      _classCallCheck(this, ReactEditableSvgLabel);
+
+      _this = _possibleConstructorReturn(this, _getPrototypeOf(ReactEditableSvgLabel).call(this, props));
+      _this.state = {
         isEditing: false,
         labelX: 0,
         labelY: 0,
         labelWidth: 0,
         labelHeight: 0
       };
-    },
-    handleOpen: function handleOpen(domNode) {
-      if (this.props.focusOnOpen) {
-        this.refs.input.focus();
-      }
-    },
-    toggleEditing: function toggleEditing(e) {
-      this.setState({
-        isEditing: !this.state.isEditing
-      });
-    },
-    handleChangeText: function handleChangeText(e) {
-      var text = e.target.value;
-      this.props.onChange(text);
-    },
-    updateLabelBounds: function updateLabelBounds() {
-      var rect = this.refs.label.getBoundingClientRect();
-      this.setState({
-        labelX: rect.left,
-        labelY: rect.top,
-        labelWidth: rect.width,
-        labelHeight: rect.height
-      });
-    },
-    componentDidMount: function componentDidMount() {
-      this.updateLabelBounds();
-    },
-    render: function render() {
-      // Omit onChange, minLabelWidth, and children.
-      var passThroughProps = Object.assign({}, this.props);
-      Object.keys(this.constructor.propTypes).forEach(function (key) {
-        delete passThroughProps[key];
-      });
-      var label = React.createElement("text", _extends({
-        ref: "label"
-      }, passThroughProps), this.props.children);
-      return React.createElement(Portal, {
-        openByClickOn: label,
-        closeOnOutsideClick: true,
-        onOpen: this.handleOpen
-      }, React.createElement("input", {
-        ref: "input",
-        type: "text",
-        value: this.props.children,
-        onChange: this.handleChangeText,
-        style: {
-          position: 'absolute',
-          top: this.state.labelY,
-          left: this.state.labelX,
-          width: Math.max(this.props.minLabelWidth, this.state.labelWidth),
-          height: this.state.labelHeight
-        }
-      }));
+      _this.handleOpen = _this.handleOpen.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+      _this.toggleEditing = _this.toggleEditing.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+      _this.handleChangeText = _this.handleChangeText.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+      _this.updateLabelBounds = _this.updateLabelBounds.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+      return _this;
     }
-  });
+
+    _createClass(ReactEditableSvgLabel, [{
+      key: "handleOpen",
+      value: function handleOpen(domNode) {
+        if (this.props.focusOnOpen) {
+          this.refs.input.focus();
+        }
+      }
+    }, {
+      key: "toggleEditing",
+      value: function toggleEditing(e) {
+        this.setState({
+          isEditing: !this.state.isEditing
+        });
+      }
+    }, {
+      key: "handleChangeText",
+      value: function handleChangeText(e) {
+        var text = e.target.value;
+        this.props.onChange(text);
+      }
+    }, {
+      key: "updateLabelBounds",
+      value: function updateLabelBounds() {
+        var rect = this.refs.label.getBoundingClientRect();
+        this.setState({
+          labelX: rect.left,
+          labelY: rect.top,
+          labelWidth: rect.width,
+          labelHeight: rect.height
+        });
+      }
+    }, {
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        this.updateLabelBounds();
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        // Omit onChange, minLabelWidth, and children.
+        var passThroughProps = Object.assign({}, this.props);
+        Object.keys(this.constructor.propTypes).forEach(function (key) {
+          delete passThroughProps[key];
+        });
+        var label = React.createElement("text", _extends({
+          ref: "label"
+        }, passThroughProps), this.props.children);
+        return React.createElement(Portal, {
+          openByClickOn: label,
+          closeOnOutsideClick: true,
+          onOpen: this.handleOpen
+        }, React.createElement("input", {
+          ref: "input",
+          type: "text",
+          value: this.props.children,
+          onChange: this.handleChangeText,
+          style: {
+            position: 'absolute',
+            top: this.state.labelY,
+            left: this.state.labelX,
+            width: Math.max(this.props.minLabelWidth, this.state.labelWidth),
+            height: this.state.labelHeight
+          }
+        }));
+      }
+    }]);
+
+    return ReactEditableSvgLabel;
+  }(React.Component);
+
+  ReactEditableSvgLabel.propTypes = {
+    onChange: propTypes.func,
+    minLabelWidth: propTypes.number,
+    focusOnOpen: propTypes.bool,
+    children: propTypes.any
+  };
+  ReactEditableSvgLabel.defaultProps = {
+    onChange: function onChange() {},
+    minLabelWidth: 100,
+    focusOnOpen: true
+  };
 
   return ReactEditableSvgLabel;
 

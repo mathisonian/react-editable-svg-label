@@ -47,6 +47,7 @@
   "scripts": {
     "build": "rollup --config",
     "lint": "semistandard",
+    "lint-fix": "semistandard --fix",
     "publish:site": "NODE_ENV=production gulp publish:examples",
     "prepare": "npm run build",
     "serve": "serve example/dist",
