@@ -54,7 +54,7 @@
     "watch": "rollup --config --watch",
     "start": "concurrently \"npm run watch\" \"npm run serve\"",
     "test": "echo \"no tests yet\" && exit 0",
-    "now-build": "cd dist && mkdir dist example && mv *.js dist && cp -r ../example/dist/* example/"
+    "now-build": "npm run build && cd dist && mkdir dist example && mv *.js dist && cp -r ../example/dist/* example/"
   },
   "files": [
     "src/*.js",
