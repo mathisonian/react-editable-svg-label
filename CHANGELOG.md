@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 – Jun 1, 2019
+
+- Update build dependencies.
+
 ## 2.0.0 – Jan 5, 2019
 
 - BREAKING CHANGE: Drop support for React 15.
