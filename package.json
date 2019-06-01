@@ -1,6 +1,6 @@
 {
   "name": "react-editable-svg-label",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "react-editable-svg-label",
   "main": "lib/ReactEditableSvgLabel.cjs.js",
   "module": "lib/ReactEditableSvgLabel.esm.js",
