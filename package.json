@@ -1,16 +1,13 @@
 {
   "name": "react-editable-svg-label",
   "version": "2.0.1",
-  "description": "react-editable-svg-label",
+  "description": "A text element for SVG that you can edit",
   "main": "lib/ReactEditableSvgLabel.cjs.js",
   "module": "lib/ReactEditableSvgLabel.esm.js",
   "browser": "dist/react-editable-svg-label.js",
   "author": "Matthew Conlen",
   "homepage": "https://github.com/mathisonian/react-editable-svg-label",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mathisonian/react-editable-svg-label.git"
-  },
+  "repository": "mathisonian/react-editable-svg-label",
   "bugs": {
     "url": "https://github.com/mathisonian/react-editable-svg-label/issues"
   },
