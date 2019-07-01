@@ -1,6 +1,6 @@
 {
   "name": "react-editable-svg-label",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A text element for SVG that you can edit",
   "main": "lib/ReactEditableSvgLabel.cjs.js",
   "module": "lib/ReactEditableSvgLabel.esm.js",

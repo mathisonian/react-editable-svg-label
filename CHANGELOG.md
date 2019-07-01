@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2 – Jul 1, 2019
+
+- Update build dependencies.
+
 ## 2.0.1 – Jun 1, 2019
 
 - Update build dependencies.
