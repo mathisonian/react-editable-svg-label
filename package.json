@@ -35,7 +35,7 @@
     "rollup-plugin-replace": "^2.1.0",
     "semistandard": "^13.0.1",
     "serve": "^11.0.1",
-    "systemjs": "^4.0.0"
+    "systemjs": "^5.0.0"
   },
   "peerDependencies": {
     "react": "^16.0.0-0",
