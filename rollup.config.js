@@ -102,7 +102,9 @@ export default [
     plugins: [
       babel({ exclude: 'node_modules/**' }),
       alias({
-        'react-editable-svg-label': 'src/ReactEditableSvgLabel.js'
+        entries: [
+          { find: 'react-editable-svg-label', replacement: 'src/ReactEditableSvgLabel.js' }
+        ]
       }),
       commonjs(),
       resolve(),
