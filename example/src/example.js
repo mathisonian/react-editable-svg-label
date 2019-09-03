@@ -22,10 +22,12 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <svg width='400px' height='300px'
-          xmlns='http://www.w3.org/2000/svg'>
+        <svg
+          width='400px' height='300px'
+          xmlns='http://www.w3.org/2000/svg'
+        >
           <circle cx={200} cy={150} r={150} fill='orange' />
-          <ReactEditableSvgLabel onChange={this.handleChangeText} x={200} y={150} textAnchor='middle' >
+          <ReactEditableSvgLabel onChange={this.handleChangeText} x={200} y={150} textAnchor='middle'>
             {this.state.text}
           </ReactEditableSvgLabel>
         </svg>
